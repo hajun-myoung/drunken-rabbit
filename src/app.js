@@ -6,11 +6,14 @@ import { worldRouter } from "./routers/worldRouter.js";
 import { mainRouter } from "./routers/mainRouter.js";
 import { detailRouter } from "./routers/detailRouter.js";
 import { myPageRouter } from "./routers/myPageRouter.js";
+
 const app = express();
+
 // CORS 에러 방지
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 //여기에 router들 작성
 app.use(userRouter);
 app.use(worldRouter);
