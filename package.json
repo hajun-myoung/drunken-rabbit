@@ -1,14 +1,18 @@
 {
-  "name": "back",
+  "name": "wine-search-service",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start" : "npm run server",
+    "start": "npm run server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon --exec babel-node --es-module-specifier-resolution=node index.js",
     "db": "nodemon ./src/db/index.js ",
-    "dev": "concurrently \"npm run server\"  \"npm run db\" "
+    "dev": "concurrently \"npm run server\"  \"npm run db\" ",
+    "heroku-postbuild": "cd front && yarn install --only=dev && yarn install && yarn build"
+  },
+  "engines": {
+    "node": "16.14.0"
   },
   "author": "",
   "license": "ISC",
