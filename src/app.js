@@ -21,4 +21,11 @@ app.use(mainRouter);
 app.use(myPageRouter);
 app.use(detailRouter);
 
+// Heroku 배포를 위해 express에서 static한 파일들을 사용할 수 있게끔 함
+import path from "path";
+app.use(express.static(path.join(__dirname, "../front", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front", "build", "index.html"));
+});
+
 export { app };
